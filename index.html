@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบตอบรับเข้าร่วมโครงการ และแบบสอบถาม - ศาลจังหวัดเทิง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0F2A4A;
+      --navy-deep: #0A1E36;
+      --gold: #B8924A;
+      --gold-light: #D8BD86;
+      --paper: #F7F4ED;
+      --paper-card: #FFFFFF;
+      --ink: #2A2A28;
+      --ink-soft: #5C5C58;
+      --forest: #1F4D3D;
+      --brick: #8C3B2E;
+      --line: #E3DCC9;
+      --shadow: 0 1px 2px rgba(15, 42, 74, 0.04), 0 4px 16px rgba(15, 42, 74, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Sarabun', sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(184, 146, 74, 0.05), transparent 40%),
+        var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ===== Header — official letter band ===== */
+    .letterhead {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: #fff;
+      padding: 38px 32px 30px;
+      border-radius: 0 0 14px 14px;
+      margin: 0 -20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letterhead::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 14px);
+      pointer-events: none;
+    }
+
+    .letterhead .crest {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .letterhead .crest img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    }
+
+    .letterhead .org {
+      text-align: center;
+      font-size: 13.5px;
+      letter-spacing: 0.5px;
+      color: var(--gold-light);
+      margin: 0 0 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .letterhead h1 {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 10px;
+      line-height: 1.55;
+      position: relative;
+      z-index: 1;
+    }
+
+    .letterhead .gold-rule {
+      width: 96px;
+      height: 2px;
+      margin: 14px auto 14px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .letterhead .meta {
+      text-align: center;
+      font-size: 14px;
+      color: #E7E1D2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .letterhead .meta strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ===== Intro note ===== */
+    .intro {
+      padding: 22px 4px 6px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+    }
+
+    .intro .req-note {
+      color: var(--brick);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    /* ===== Section header ===== */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 36px 0 16px;
+    }
+
+    .section-head .num {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      padding-bottom: 2px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .section-head h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .section-sub {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      margin: -10px 0 18px;
+      padding-left: 0;
+    }
+
+    /* ===== Card ===== */
+    .card {
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 28px 26px;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    label .req {
+      color: var(--brick);
+      margin-left: 3px;
+    }
+
+    label .opt {
+      font-weight: 400;
+      color: var(--ink-soft);
+      font-size: 12.5px;
+      margin-left: 6px;
+    }
+
+    .hint {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin: -3px 0 8px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      background: #FCFBF8;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 11px 14px;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    select:hover,
+    input:hover,
+    textarea:hover {
+      border-color: #C9BE9C;
+    }
+
+    select:focus,
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(15, 42, 74, 0.10);
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C5C58' stroke-width='2'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 18px;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width:540px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .meal-note {
+      font-size: 12.5px;
+      color: var(--forest);
+      background: rgba(31, 77, 61, 0.06);
+      border-left: 3px solid var(--forest);
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+
+    .field.invalid select,
+    .field.invalid input,
+    .field.invalid textarea {
+      border-color: var(--brick);
+      background: #FFF8F6;
+    }
+
+    .field .error-msg {
+      display: none;
+      color: var(--brick);
+      font-size: 12.5px;
+      margin-top: 6px;
+    }
+
+    .field.invalid .error-msg {
+      display: block;
+    }
+
+    /* ===== Submit ===== */
+    .submit-row {
+      margin-top: 34px;
+      text-align: center;
+    }
+
+    button.submit-btn {
+      font-family: 'Sarabun', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      border: none;
+      border-radius: 10px;
+      padding: 14px 48px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(15, 42, 74, 0.25);
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      letter-spacing: 0.3px;
+    }
+
+    button.submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(15, 42, 74, 0.32);
+    }
+
+    button.submit-btn:active {
+      transform: translateY(0);
+    }
+
+    button.submit-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .submit-hint {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-top: 12px;
+    }
+
+    /* ===== Success state ===== */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success-screen.show {
+      display: block;
+    }
+
+    .success-screen .check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: rgba(31, 77, 61, 0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-screen h2 {
+      color: var(--navy);
+      font-size: 19px;
+      margin: 0 0 8px;
+    }
+
+    .success-screen p {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+
+    .form-wrap.hide {
+      display: none;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: #A8A29A;
+      margin-top: 44px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <div class="letterhead">
+      <div class="crest">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Emblem_of_Court_of_Justice_Thailand.png"
+          alt="ตราสัญลักษณ์ศาลยุติธรรม">
+      </div>
+      <div class="org">ศาลจังหวัดเทิง</div>
+      <h1>แบบตอบรับเข้าร่วมโครงการส่งเสริมความร่วมมือด้านการยุติธรรม<br>และแบบสอบถามข้อเสนอแนะ ประจำปีงบประมาณ พ.ศ. 2569
+      </h1>
+      <div class="gold-rule"></div>
+      <div class="meta">วันพุธที่ <strong>15 กรกฎาคม 2569</strong> ณ ห้องประชุมวิทยาลัยเทคนิคเทิง<br>ตำบลเวียง อำเภอเทิง
+        จังหวัดเชียงราย</div>
+    </div>
+
+    <div class="form-wrap" id="formWrap">
+
+      <div class="intro">
+        กรุณากรอกข้อมูลให้ครบถ้วนเพื่อยืนยันการเข้าร่วมโครงการ
+        และแสดงความคิดเห็นเกี่ยวกับการประสานความร่วมมือระหว่างหน่วยงาน
+        <div class="req-note">* หมายถึงข้อมูลที่จำเป็นต้องกรอก</div>
+      </div>
+
+      <form id="courtForm">
+
+        <!-- SECTION 1 -->
+        <div class="section-head">
+          <span class="num">ส่วนที่ ๑</span>
+          <h2>แบบตอบรับเข้าร่วมโครงการ</h2>
+        </div>
+
+        <div class="card">
+          <div class="field">
+            <label for="orgName">ชื่อหน่วยงาน<span class="req">*</span></label>
+            <select id="orgName" name="orgName" required>
+              <option value="" disabled selected>เลือกหน่วยงาน</option>
+              <option>อัยการจังหวัดเทิง</option>
+              <option>พนักงานอัยการคุ้มครองสิทธิและช่วยเหลือทางกฎหมายและการบังคับคดีจังหวัดเชียงราย สาขาเทิง</option>
+              <option>ผู้บัญชาการเรือนจำอำเภอเทิง</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรเทิง</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรพญาเม็งราย</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรป่าแดด</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรขุนตาล</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรบุญเรือง</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรเวียงแก่น</option>
+              <option>ผู้กำกับการสถานีตำรวจภูธรเชียงของ</option>
+              <option>ผู้อำนวยการสำนักงานคุมประพฤติจังหวัดเชียงราย สาขาเทิง</option>
+              <option>ผู้อำนวยการสำนักงานบังคับคดีจังหวัดเชียงราย สาขาเทิง</option>
+              <option>ประธานสภาทนายความจังหวัดเทิง</option>
+              <option>เจ้าพนักงานที่ดินจังหวัดเชียงราย สาขาเทิง</option>
+              <option>เจ้าพนักงานที่ดินจังหวัดเชียงราย สาขาเชียงของ</option>
+              <option>เจ้าพนักงานที่ดินจังหวัดเชียงราย สาขาเทิง ส่วนแยกพญาเม็งราย</option>
+              <option>นายด่านศุลกากรเชียงของ</option>
+              <option>สรรพสามิตพื้นที่เชียงราย สาขาเชียงของ</option>
+              <option>ด่านตรวจคนเข้าเมืองเชียงแสน</option>
+              <option>เจ้าพนักงานที่ดินจังหวัดเชียงราย สาขาพาน ส่วนแยกป่าแดด</option>
+            </select>
+            <div class="error-msg">กรุณาเลือกหน่วยงาน</div>
+          </div>
+
+          <div class="field">
+            <label for="attendee1">ผู้เข้าร่วมสัมมนา (คนที่ 1)<span class="req">*</span></label>
+            <input type="text" id="attendee1" name="attendee1" placeholder="ชื่อ-นามสกุล" required>
+            <div class="error-msg">กรุณากรอกชื่อผู้เข้าร่วมสัมมนา</div>
+          </div>
+
+          <div class="field">
+            <label for="attendee2">ผู้เข้าร่วมสัมมนา (คนที่ 2)<span class="opt">ไม่บังคับ</span></label>
+            <input type="text" id="attendee2" name="attendee2" placeholder="ชื่อ-นามสกุล">
+          </div>
+
+          <div class="field">
+            <label for="attendee3">ผู้เข้าร่วมสัมมนา (คนที่ 3)<span class="opt">ไม่บังคับ</span></label>
+            <input type="text" id="attendee3" name="attendee3" placeholder="ชื่อ-นามสกุล">
+          </div>
+
+          <div class="field">
+            <label for="attendee4">ผู้เข้าร่วมสัมมนา (คนที่ 4)<span class="opt">ไม่บังคับ</span></label>
+            <input type="text" id="attendee4" name="attendee4" placeholder="ชื่อ-นามสกุล">
+          </div>
+
+          <div class="meal-note">กรุณาแจ้งจำนวนผู้เข้าร่วมแยกตามประเภทอาหาร เพื่อความสะดวกในการจัดเตรียม</div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="mealNormal">การจัดอาหารปกติ<span class="opt">จำนวนคน</span></label>
+              <input type="text" inputmode="numeric" id="mealNormal" name="mealNormal" placeholder="เช่น 2">
+            </div>
+            <div class="field">
+              <label for="mealIslam">การจัดอาหารอิสลาม<span class="opt">จำนวนคน</span></label>
+              <input type="text" inputmode="numeric" id="mealIslam" name="mealIslam" placeholder="เช่น 0">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="contactName">ชื่อผู้ติดต่อประสานงานของหน่วยงานท่าน<span class="req">*</span></label>
+            <input type="text" id="contactName" name="contactName" placeholder="ชื่อ-นามสกุล" required>
+            <div class="error-msg">กรุณากรอกชื่อผู้ติดต่อประสานงาน</div>
+          </div>
+
+          <div class="field">
+            <label for="contactPhone">หมายเลขโทรศัพท์ผู้ติดต่อประสานงาน<span class="req">*</span></label>
+            <input type="tel" id="contactPhone" name="contactPhone" placeholder="0XX-XXX-XXXX" required>
+            <div class="error-msg">กรุณากรอกหมายเลขโทรศัพท์</div>
+          </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="section-head">
+          <span class="num">ส่วนที่ ๒</span>
+          <h2>แบบสอบถามปัญหาและข้อเสนอแนะ</h2>
+        </div>
+        <div class="section-sub">เกี่ยวกับการประสานความร่วมมือด้านการยุติธรรมของหน่วยงานในกระบวนการยุติธรรม
+          ในเขตอำนาจศาลจังหวัดเทิง</div>
+
+        <div class="card">
+          <div class="field">
+            <label for="problem">ปัญหาข้อขัดข้อง<span class="opt">ไม่บังคับ</span></label>
+            <textarea id="problem" name="problem"
+              placeholder="โปรดระบุปัญหาหรือข้อขัดข้องที่พบในการประสานงาน"></textarea>
+          </div>
+          <div class="field">
+            <label for="suggestion">แนวทางการแก้ไขปัญหาหรือข้อเสนอแนะ<span class="opt">ไม่บังคับ</span></label>
+            <textarea id="suggestion" name="suggestion" placeholder="โปรดระบุแนวทางแก้ไขหรือข้อเสนอแนะ"></textarea>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="submit-btn" id="submitBtn">ส่งแบบตอบรับ</button>
+          <div class="submit-hint" id="submitHint">กรุณาตรวจสอบความถูกต้องของข้อมูลก่อนกดส่ง</div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="success-screen" id="successScreen">
+      <div class="check">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1F4D3D" stroke-width="2.4"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h2>ส่งข้อมูลเรียบร้อยแล้ว</h2>
+      <p>ขอบคุณสำหรับการตอบรับและข้อเสนอแนะของท่าน<br>เจ้าหน้าที่ได้รับข้อมูลของท่านเรียบร้อยแล้ว</p>
+    </div>
+
+    <div class="footer-note">ศาลจังหวัดเทิง · จังหวัดเชียงราย</div>
+
+  </div>
+
+  <script>
+    // ===========================================================================
+    // แก้ไข URL นี้ให้เป็น Web App URL ของ Google Apps Script ของคุณ
+    // (ดูวิธีตั้งค่าได้ในไฟล์ คำแนะนำการเชื่อมต่อ Google Sheet.md ที่แนบมาด้วย)
+    // ===========================================================================
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbysdFn3PLV1zizzxL1Q7HfvLhXtIqKJ9XAOzkB2S9-qzhidW9ZblrBdSBDemADnUI6qsA/exec";
+
+    const form = document.getElementById('courtForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitHint = document.getElementById('submitHint');
+    const formWrap = document.getElementById('formWrap');
+    const successScreen = document.getElementById('successScreen');
+
+    function setFieldValidity(field, ok, errMsg) {
+      const wrapper = field.closest('.field');
+      if (!ok) {
+        wrapper.classList.add('invalid');
+        if (errMsg) wrapper.querySelector('.error-msg').textContent = errMsg;
+      } else {
+        wrapper.classList.remove('invalid');
+      }
+    }
+
+    function validateForm() {
+      let valid = true;
+
+      const org = document.getElementById('orgName');
+      if (!org.value) { setFieldValidity(org, false); valid = false; } else setFieldValidity(org, true);
+
+      const a1 = document.getElementById('attendee1');
+      if (!a1.value.trim()) { setFieldValidity(a1, false); valid = false; } else setFieldValidity(a1, true);
+
+      const cn = document.getElementById('contactName');
+      if (!cn.value.trim()) { setFieldValidity(cn, false); valid = false; } else setFieldValidity(cn, true);
+
+      const cp = document.getElementById('contactPhone');
+      if (!cp.value.trim()) { setFieldValidity(cp, false); valid = false; } else setFieldValidity(cp, true);
+
+      return valid;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        const firstInvalid = form.querySelector('.field.invalid');
+        if (firstInvalid) {
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      const data = {
+        timestamp: new Date().toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' }),
+        orgName: document.getElementById('orgName').value,
+        attendee1: document.getElementById('attendee1').value.trim(),
+        attendee2: document.getElementById('attendee2').value.trim(),
+        attendee3: document.getElementById('attendee3').value.trim(),
+        attendee4: document.getElementById('attendee4').value.trim(),
+        mealNormal: document.getElementById('mealNormal').value.trim(),
+        mealIslam: document.getElementById('mealIslam').value.trim(),
+        contactName: document.getElementById('contactName').value.trim(),
+        contactPhone: document.getElementById('contactPhone').value.trim(),
+        problem: document.getElementById('problem').value.trim(),
+        suggestion: document.getElementById('suggestion').value.trim()
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "กำลังส่งข้อมูล...";
+      submitHint.textContent = "";
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+      })
+        .then(() => {
+          formWrap.classList.add('hide');
+          successScreen.classList.add('show');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "ส่งแบบตอบรับ";
+          submitHint.textContent = "ส่งข้อมูลไม่สำเร็จ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตและลองใหม่อีกครั้ง";
+          submitHint.style.color = "#8C3B2E";
+        });
+    });
+  </script>
+
+</body>
+
+</html>
